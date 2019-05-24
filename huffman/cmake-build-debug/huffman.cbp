@@ -90,6 +90,12 @@
 		<Unit filename="/home/filipecavalcanti/huffman/huffman/Node.h">
 			<Option target="huffman"/>
 		</Unit>
+		<Unit filename="/home/filipecavalcanti/huffman/huffman/Tree.cpp">
+			<Option target="huffman"/>
+		</Unit>
+		<Unit filename="/home/filipecavalcanti/huffman/huffman/Tree.h">
+			<Option target="huffman"/>
+		</Unit>
 		<Unit filename="/home/filipecavalcanti/huffman/huffman/main.cpp">
 			<Option target="huffman"/>
 		</Unit>

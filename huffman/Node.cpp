@@ -4,21 +4,6 @@
 
 #include "Node.h"
 
-const Node &Node::getLeft() const {
-    return left;
-}
-
-void Node::setLeft(const Node &left) {
-    Node::left = left;
-}
-
-const Node &Node::getRigth() const {
-    return rigth;
-}
-
-void Node::setRigth(const Node &rigth) {
-    Node::rigth = rigth;
-}
 
 long Node::getFrequency() const {
     return frequency;
@@ -26,4 +11,20 @@ long Node::getFrequency() const {
 
 void Node::setFrequency(long frequency) {
     Node::frequency = frequency;
+}
+
+Node *Node::getRight() const {
+    return right;
+}
+
+void Node::setRight(Node *right) {
+    Node::right = right;
+}
+
+Node *Node::getLeft() const {
+    return left;
+}
+
+void Node::setLeft(Node *left) {
+    Node::left = left;
 }

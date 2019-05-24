@@ -12,22 +12,21 @@ private:
     long frequency;
 
 private:
-    Node rigth;
-    Node left;
+    Node* right ;
+    Node* left;
 
 public:
-    const Node &getLeft() const;
-
-    void setLeft(const Node &left);
-
-    const Node &getRigth() const;
-
-    void setRigth(const Node &rigth);
-
     long getFrequency() const;
 
     void setFrequency(long frequency);
 
+    Node *getRight() const;
+
+    void setRight(Node *right);
+
+    Node *getLeft() const;
+
+    void setLeft(Node *left);
 
 
 };

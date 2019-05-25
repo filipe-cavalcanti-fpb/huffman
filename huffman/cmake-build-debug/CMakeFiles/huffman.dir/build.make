@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/filipecavalcanti/Downloads/clion-2019.1.3/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/leonardo/Downloads/clion-2019.1.3/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/filipecavalcanti/Downloads/clion-2019.1.3/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/leonardo/Downloads/clion-2019.1.3/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/filipecavalcanti/huffman/huffman
+CMAKE_SOURCE_DIR = /home/leonardo/Documentos/atal/projeto/huffman/huffman
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/filipecavalcanti/huffman/huffman/cmake-build-debug
+CMAKE_BINARY_DIR = /home/leonardo/Documentos/atal/projeto/huffman/huffman/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/huffman.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/huffman.dir/flags.make
 
 CMakeFiles/huffman.dir/main.cpp.o: CMakeFiles/huffman.dir/flags.make
 CMakeFiles/huffman.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/filipecavalcanti/huffman/huffman/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/huffman.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/huffman.dir/main.cpp.o -c /home/filipecavalcanti/huffman/huffman/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonardo/Documentos/atal/projeto/huffman/huffman/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/huffman.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/huffman.dir/main.cpp.o -c /home/leonardo/Documentos/atal/projeto/huffman/huffman/main.cpp
 
 CMakeFiles/huffman.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/huffman.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/filipecavalcanti/huffman/huffman/main.cpp > CMakeFiles/huffman.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonardo/Documentos/atal/projeto/huffman/huffman/main.cpp > CMakeFiles/huffman.dir/main.cpp.i
 
 CMakeFiles/huffman.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/huffman.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/filipecavalcanti/huffman/huffman/main.cpp -o CMakeFiles/huffman.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonardo/Documentos/atal/projeto/huffman/huffman/main.cpp -o CMakeFiles/huffman.dir/main.cpp.s
 
 CMakeFiles/huffman.dir/Node.cpp.o: CMakeFiles/huffman.dir/flags.make
 CMakeFiles/huffman.dir/Node.cpp.o: ../Node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/filipecavalcanti/huffman/huffman/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/huffman.dir/Node.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/huffman.dir/Node.cpp.o -c /home/filipecavalcanti/huffman/huffman/Node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonardo/Documentos/atal/projeto/huffman/huffman/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/huffman.dir/Node.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/huffman.dir/Node.cpp.o -c /home/leonardo/Documentos/atal/projeto/huffman/huffman/Node.cpp
 
 CMakeFiles/huffman.dir/Node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/huffman.dir/Node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/filipecavalcanti/huffman/huffman/Node.cpp > CMakeFiles/huffman.dir/Node.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonardo/Documentos/atal/projeto/huffman/huffman/Node.cpp > CMakeFiles/huffman.dir/Node.cpp.i
 
 CMakeFiles/huffman.dir/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/huffman.dir/Node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/filipecavalcanti/huffman/huffman/Node.cpp -o CMakeFiles/huffman.dir/Node.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonardo/Documentos/atal/projeto/huffman/huffman/Node.cpp -o CMakeFiles/huffman.dir/Node.cpp.s
 
 # Object files for target huffman
 huffman_OBJECTS = \
@@ -95,7 +95,7 @@ huffman: CMakeFiles/huffman.dir/main.cpp.o
 huffman: CMakeFiles/huffman.dir/Node.cpp.o
 huffman: CMakeFiles/huffman.dir/build.make
 huffman: CMakeFiles/huffman.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/filipecavalcanti/huffman/huffman/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable huffman"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leonardo/Documentos/atal/projeto/huffman/huffman/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable huffman"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/huffman.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/huffman.dir/clean:
 .PHONY : CMakeFiles/huffman.dir/clean
 
 CMakeFiles/huffman.dir/depend:
-	cd /home/filipecavalcanti/huffman/huffman/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/filipecavalcanti/huffman/huffman /home/filipecavalcanti/huffman/huffman /home/filipecavalcanti/huffman/huffman/cmake-build-debug /home/filipecavalcanti/huffman/huffman/cmake-build-debug /home/filipecavalcanti/huffman/huffman/cmake-build-debug/CMakeFiles/huffman.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/leonardo/Documentos/atal/projeto/huffman/huffman/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/leonardo/Documentos/atal/projeto/huffman/huffman /home/leonardo/Documentos/atal/projeto/huffman/huffman /home/leonardo/Documentos/atal/projeto/huffman/huffman/cmake-build-debug /home/leonardo/Documentos/atal/projeto/huffman/huffman/cmake-build-debug /home/leonardo/Documentos/atal/projeto/huffman/huffman/cmake-build-debug/CMakeFiles/huffman.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/huffman.dir/depend
 

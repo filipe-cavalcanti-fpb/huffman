@@ -2,6 +2,12 @@
 #include "Node.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Node* nl = new Node();
+    nl->setFrequency(1234l);
+    Node* nr = new Node();
+    Node* root = new Node();
+    root->setRigth(nl);
+    root->setFrequency(123123);
+    std::cout << root->getRigth()->getFrequency() << std::endl;
     return 0;
 }

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/filipecavalcanti/huffman/huffman/Node.cpp
+Node.h
+/home/filipecavalcanti/huffman/huffman/Node.h
+
+/home/filipecavalcanti/huffman/huffman/Node.h
+
+/home/filipecavalcanti/huffman/huffman/main.cpp
+iostream
+-
+Node.h
+/home/filipecavalcanti/huffman/huffman/Node.h
+

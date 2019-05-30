@@ -9,7 +9,27 @@
 class Heap {
 private:
     int* heap;
+    int heapSize;
+public:
+    int *getHeap() const;
 
+    void setHeap(int *heap);
+
+    int getHeapSize() const;
+
+    void setHeapSize(int heapSize);
+
+public:
+    Heap(int heapSize);
+
+public:
+    int getParent(int node);
+
+    int getLeft(int node);
+
+    int getRight(int node);
+
+    void maxHeapify(int node);
 
 };
 

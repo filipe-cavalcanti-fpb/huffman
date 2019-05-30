@@ -6,6 +6,13 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< HEAD
+=======
+/home/filipecavalcanti/huffman/huffman/Node.cpp
+Node.h
+/home/filipecavalcanti/huffman/huffman/Node.h
+
+>>>>>>> develop
 /home/filipecavalcanti/huffman/huffman/Node.h
 
 /home/filipecavalcanti/huffman/huffman/main.cpp

@@ -12,17 +12,17 @@ private:
     long frequency;
 
 private:
-    Node *rigth;
-    Node *left;
+    Node* right ;
+    Node* left;
 
 public:
     long getFrequency() const;
 
     void setFrequency(long frequency);
 
-    Node *getRigth() const;
+    Node *getRight() const;
 
-    void setRigth(Node *rigth);
+    void setRight(Node *right);
 
     Node *getLeft() const;
 

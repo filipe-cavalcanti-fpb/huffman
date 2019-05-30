@@ -1,5 +1,5 @@
 #include <iostream>
-#include "tree/Node.h"
+#include "src/tree/Node.h"
 
 using namespace std;
 

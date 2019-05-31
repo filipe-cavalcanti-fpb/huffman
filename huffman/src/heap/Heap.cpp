@@ -130,16 +130,17 @@ void Heap::setHeapLength(int heapLength) {
     Heap::heapLength = heapLength;
 }
 
-void Heap::buildMaxHeap(int *heap, int heapSize) {
+void Heap::buildMaxHeap(int *heap) {
     this->heapSize = heapSize;
     for(int i = 0; i < heapSize; i++) {
         this->maxHeapify(heap[i]);
     }
 }
 
-void Heap::buildMinHeap(int *heap, int heapSize) {
+void Heap::buildMinHeap(int *heap) {
     this->heapSize = heapSize;
     for(int i = 0; i < heapSize; i++) {
         this->minHeapify(heap[i]);
     }
+
 }

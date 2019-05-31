@@ -31,6 +31,27 @@ public:
 
     void maxHeapify(int node);
 
+    void minHeapify(int node);
+
+    void buildMaxHeap(int* heap);
+
+    void buildMinHeap(int *heap);
+
+    int heapMaximum();
+
+    int heapMinimum();
+
+    int heapExtractMax();
+
+    int heapExtractMin();
+
+    void heapIncreaseKey(int node, int newKey);
+
+    void heapDecreaseKey(int node, int newKey);
+
+    void maxHeapInsert(int node);
+
+    void minHeapInsert(int node);
 };
 
 

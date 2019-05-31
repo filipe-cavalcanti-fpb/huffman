@@ -53,3 +53,76 @@ int Heap::getHeapSize() const {
 void Heap::setHeapSize(int heapSize) {
     Heap::heapSize = heapSize;
 }
+
+void Heap::minHeapify(int node) {
+    int left = this->getLeft(node);
+    int right = this->getRight(node);
+    int small;
+
+    small = (left <= this->heapSize and this->heap()[left] < this->heap()[node]) ? left : node;
+    small = (right <= this->heapSize and this->heap[right] < this->heap[small]) ? right : small;
+
+    if(better != i) {
+        int intermediate = this->heap[node];
+        this->heap[node] = this->heap[small];
+        this->heap[small] = intermediate;
+
+        minHeapify(small);
+    }
+}
+
+int Heap::heapMaximum() {
+    if(this->heapSize > 0) {
+        return this->heap[0]
+    }
+    else {
+        throw "HeapEnptyException";
+    }
+}
+
+int Heap::heapMinimum() {
+    if(this->heapSize > 0) {
+        return this->heap[0]
+    }
+    else {
+        throw "HeapEnptyException";
+    }
+}
+
+int Heap::heapExtractMax() {
+    return 0;
+}
+
+int Heap::heapExtractMin() {
+    return 0;
+}
+
+void Heap::heapIncreaseKey(int node, int newKey) {
+
+}
+
+void Heap::heapDecreaseKey(int node, int newKey) {
+
+}
+
+void Heap::maxHeapInsert(int node) {
+
+}
+
+void Heap::minHeapInsert(int node) {
+
+}
+
+void Heap::buildMaxHeap(int *heap, int heapSize) {
+    this->heapSize = heapSize;
+    for(int i = 0; i < heapSize; i++) {
+        this->maxHeapify(heap[i]);
+    }
+}
+
+void Heap::buildMinHeap(int *heap, int heapSize) {
+    this->heapSize = heapSize;
+    for(int i = 0; i < heapSize; i++) {
+        this->minHeapify(heap[i]);
+    }
+}

@@ -10,6 +10,12 @@ class Heap {
 private:
     int* heap;
     int heapSize;
+    int heapLength;
+public:
+    int getHeapLength() const;
+
+    void setHeapLength(int heapLength);
+
 public:
     int *getHeap() const;
 

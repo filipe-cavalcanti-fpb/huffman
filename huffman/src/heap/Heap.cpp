@@ -5,6 +5,9 @@
 #include "Heap.h"
 #include <climits>
 
+
+#define HEAP_ENPTY_EXCPETION "HeapEnptyException"
+
 int Heap::getParent(int node) {
     return node / 2;
 }
@@ -76,7 +79,7 @@ int Heap::heapMaximum() {
         return this->heap[0]
     }
     else {
-        throw "HeapEnptyException";
+        throw HEAP_ENPTY_EXCPETION;
     }
 }
 
@@ -85,11 +88,17 @@ int Heap::heapMinimum() {
         return this->heap[0]
     }
     else {
-        throw "HeapEnptyException";
+        throw HEAP_ENPTY_EXCPETION;
     }
 }
 
 int Heap::heapExtractMax() {
+    if(this->heapSize < 1) {
+        throw HEAP_ENPTY_EXCPETION;
+    }
+    int max = this->heap[0];
+    this->heap[0] = this->heap[this->heapSize - 1];
+
     return 0;
 }
 
@@ -111,6 +120,14 @@ void Heap::maxHeapInsert(int node) {
 
 void Heap::minHeapInsert(int node) {
 
+}
+
+int Heap::getHeapLength() const {
+    return heapLength;
+}
+
+void Heap::setHeapLength(int heapLength) {
+    Heap::heapLength = heapLength;
 }
 
 void Heap::buildMaxHeap(int *heap, int heapSize) {

@@ -7,6 +7,7 @@
 
 
 #define HEAP_ENPTY_EXCPETION "HeapEnptyException"
+#define HEAP_MAX_SIZE_EXCEPTION "HeapMaxSizeException"
 
 int Heap::getParent(int node) {
     return node / 2;
@@ -25,7 +26,7 @@ void Heap::maxHeapify(int node) {
     int right = this->getRight(node);
     int better;
 
-    better = (left <= this->heapSize and this->heap()[left] > this->heap()[node]) ? left : node;
+    better = (left <= this->heapSize and this->heap[left] > this->heap()[node]) ? left : node;
     better = (right <= this->heapSize and this->heap[right] > this->heap[better]) ? right : better;
 
     if(better != i) {
@@ -65,7 +66,7 @@ void Heap::minHeapify(int node) {
     small = (left <= this->heapSize and this->heap()[left] < this->heap()[node]) ? left : node;
     small = (right <= this->heapSize and this->heap[right] < this->heap[small]) ? right : small;
 
-    if(better != i) {
+    if(small != node) {
         int intermediate = this->heap[node];
         this->heap[node] = this->heap[small];
         this->heap[small] = intermediate;
@@ -76,7 +77,7 @@ void Heap::minHeapify(int node) {
 
 int Heap::heapMaximum() {
     if(this->heapSize > 0) {
-        return this->heap[0]
+        return this->heap[0];
     }
     else {
         throw HEAP_ENPTY_EXCPETION;
@@ -85,7 +86,7 @@ int Heap::heapMaximum() {
 
 int Heap::heapMinimum() {
     if(this->heapSize > 0) {
-        return this->heap[0]
+        return this->heap[0];
     }
     else {
         throw HEAP_ENPTY_EXCPETION;
@@ -107,18 +108,62 @@ int Heap::heapExtractMin() {
 }
 
 void Heap::heapIncreaseKey(int node, int newKey) {
+    this->heap[node] = newKey;
+    while (node != 0 && this->heap[this->getParent(node)] > this->heap[node])
+    {
+        int intermediate = this->heap[node];
+        this->heap[node] = this->heap[this->getParent(node)];
+        this->heap[this->getParent(node)] = intermediate;
 
+        node = this->getParent(node);
+    }
 }
 
 void Heap::heapDecreaseKey(int node, int newKey) {
+    this->heap[node] = newKey;
+    while (node != 0 && this->heap[this->getParent(node)] > this->heap[node]) {
+        int intermediate = this->heap[node];
+        this->heap[node] = this->heap[this->getParent(node)];
+        this->heap[this->getParent(node)] = intermediate;
 
+        node = this->getParent(node);
+    }
 }
 
 void Heap::maxHeapInsert(int node) {
+    if (this->heapSize == this->heapLength) {
+        throw HEAP_MAX_SIZE_EXCEPTION;
+    }
 
+    this->heapSize++;
+    int i = this->heapSize - 1;
+    this->heap[i] = node;
+
+    while (i != 0 && this->heap[this->getParent(node)] < this->heap[i]) {
+        int intermediate = this->heap[node];
+        this->heap[node] = this->heap[this->getParent(node)];
+        this->heap[this->getParent(node)] = intermediate;
+
+        node = this->getParent(node);
+    }
 }
 
 void Heap::minHeapInsert(int node) {
+    if (this->heapSize == this->heapLength) {
+        throw HEAP_MAX_SIZE_EXCEPTION;
+    }
+
+    this->heapSize++;
+    int i = this->heapSize - 1;
+    this->heap[i] = node;
+
+    while (i != 0 && this->heap[this->getParent(node)] > this->heap[i]) {
+        int intermediate = this->heap[node];
+        this->heap[node] = this->heap[this->getParent(node)];
+        this->heap[this->getParent(node)] = intermediate;
+
+        node = this->getParent(node);
+    }
 
 }
 

@@ -75,6 +75,11 @@ void Heap::minHeapify(int node) {
     }
 }
 
+/**
+ * Método para visualizar a raiz do heap máximo
+ * @author filipe.cazuza@ifpb.edu.br
+ * @return - a raiz do heap maximo
+ */
 int Heap::heapMaximum() {
     if(this->heapSize > 0) {
         return this->heap[0];
@@ -84,6 +89,11 @@ int Heap::heapMaximum() {
     }
 }
 
+/**
+ * Método para visualizar a raiz do heap minimo
+ * @author filipe.cazuza@ifpb.edu.br
+ * @return - a raiz do heap minimo
+ */
 int Heap::heapMinimum() {
     if(this->heapSize > 0) {
         return this->heap[0];
@@ -93,6 +103,11 @@ int Heap::heapMinimum() {
     }
 }
 
+/**
+ * Método para extrair o maior valor em um heap máximo
+ * @author filipe.cazuza@ifpb.edu.br
+ * @return - Maior valor do heap maximo
+ */
 int Heap::heapExtractMax() {
     if(this->heapSize < 1) {
         throw HEAP_ENPTY_EXCPETION;
@@ -103,10 +118,21 @@ int Heap::heapExtractMax() {
     return 0;
 }
 
+/**
+ * Método para extrair o menor valor de um heap minimo
+ * @author filipe.cazuza@ifpb.edu.br
+ * @return - Menor valor do heap minimo
+ */
 int Heap::heapExtractMin() {
     return 0;
 }
 
+/**
+ * Método para incrementar o valor de um nó
+ * @author filipe.cazuza@academico.ifpb.edu.br
+ * @param node - nó a ser incrementado
+ * @param newKey - novo valor do nó
+ */
 void Heap::heapIncreaseKey(int node, int newKey) {
     this->heap[node] = newKey;
     while (node != 0 && this->heap[this->getParent(node)] > this->heap[node])
@@ -119,6 +145,13 @@ void Heap::heapIncreaseKey(int node, int newKey) {
     }
 }
 
+
+/**
+ * Método para decrementar o valor de um no
+ * @author filipe.cazuza@academico.ifpb.edu.br
+ * @param node - nó a ser decrementado
+ * @param newKey - novo valor do nó
+ */
 void Heap::heapDecreaseKey(int node, int newKey) {
     this->heap[node] = newKey;
     while (node != 0 && this->heap[this->getParent(node)] > this->heap[node]) {
@@ -130,6 +163,11 @@ void Heap::heapDecreaseKey(int node, int newKey) {
     }
 }
 
+/**
+ * Método para inserir um elemento no heap maximo
+ * @author filipe.cazuza@ifpb.edu.br
+ * @param node - node a ser inserido no heap
+ */
 void Heap::maxHeapInsert(int node) {
     if (this->heapSize == this->heapLength) {
         throw HEAP_MAX_SIZE_EXCEPTION;
@@ -148,6 +186,11 @@ void Heap::maxHeapInsert(int node) {
     }
 }
 
+/**
+ * Método para inserir um elemento no heap minimo
+ * @author filipe.cazuza@ifpb.edu.br
+ * @param node - node a ser inserido no heap
+ */
 void Heap::minHeapInsert(int node) {
     if (this->heapSize == this->heapLength) {
         throw HEAP_MAX_SIZE_EXCEPTION;
@@ -171,10 +214,19 @@ int Heap::getHeapLength() const {
     return heapLength;
 }
 
+/**
+ * @author filipe.cazuza@ifpb.edu.br
+ * @param heapLength
+ */
 void Heap::setHeapLength(int heapLength) {
     Heap::heapLength = heapLength;
 }
 
+/**
+ * Método para construir um heap maximo
+ * @author filipe.cazuza@ifpb.edu.br
+ * @param heap - Array para o a construção do Heap minimo
+ */
 void Heap::buildMaxHeap(int *heap) {
     this->heapSize = heapSize;
     for(int i = 0; i < heapSize; i++) {
@@ -182,10 +234,14 @@ void Heap::buildMaxHeap(int *heap) {
     }
 }
 
+/**
+ * Método para construir um heap minimo
+ * @author filipe.cazuza@ifpb.edu.br
+ * @param heap - Array para o a construção do Heap minimo
+ */
 void Heap::buildMinHeap(int *heap) {
     this->heapSize = heapSize;
     for(int i = 0; i < heapSize; i++) {
         this->minHeapify(heap[i]);
     }
-
 }

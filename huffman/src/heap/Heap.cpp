@@ -8,6 +8,7 @@
 
 #define HEAP_ENPTY_EXCPETION "HeapEnptyException"
 #define HEAP_MAX_SIZE_EXCEPTION "HeapMaxSizeException"
+#define ROOT 1
 
 int Heap::getParent(int node) {
     return node / 2;
@@ -106,6 +107,7 @@ int Heap::heapMinimum() {
 /**
  * Método para extrair o maior valor em um heap máximo
  * @author filipe.cazuza@ifpb.edu.br
+ * @throw HEAP_ENPTY_EXCPETION
  * @return - Maior valor do heap maximo
  */
 int Heap::heapExtractMax() {
@@ -114,8 +116,9 @@ int Heap::heapExtractMax() {
     }
     int max = this->heap[0];
     this->heap[0] = this->heap[this->heapSize - 1];
-
-    return 0;
+    this->heapSize--;
+    this->maxHeapify(ROOT);
+    return max;
 }
 
 /**
@@ -227,7 +230,7 @@ void Heap::setHeapLength(int heapLength) {
  * @author filipe.cazuza@ifpb.edu.br
  * @param heap - Array para o a construção do Heap minimo
  */
-void Heap::buildMaxHeap(int *heap) {
+void Heap::buildMaxHeap() {
     for(int i = heapSize/2; i >= 1 ; i--) {
         this->maxHeapify(i);
     }
@@ -238,7 +241,7 @@ void Heap::buildMaxHeap(int *heap) {
  * @author filipe.cazuza@ifpb.edu.br
  * @param heap - Array para o a construção do Heap minimo
  */
-void Heap::buildMinHeap(int *heap) {
+void Heap::buildMinHeap() {
     this->heapSize = heapSize;
     for(int i = heapSize / 2; i >= 1; i--) {
         this->minHeapify(i);

@@ -42,9 +42,9 @@ public:
 
     void minHeapify(int nodeIndex);
 
-    void buildMaxHeap(int* heap);
+    void buildMaxHeap();
 
-    void buildMinHeap(int *heap);
+    void buildMinHeap();
 
     int heapMaximum();
 

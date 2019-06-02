@@ -56,7 +56,7 @@ public:
 
     void heapIncreaseKey(int nodeIndex, int newKey);
 
-    void heapDecreaseKey(int node, int newKey);
+    void heapDecreaseKey(int nodeIndex, int newKey);
 
     void maxHeapInsert(int node);
 

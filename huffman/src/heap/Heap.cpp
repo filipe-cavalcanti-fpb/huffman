@@ -159,17 +159,17 @@ void Heap::heapIncreaseKey(int nodeIndex, int newKey) {
 /**
  * Método para decrementar o valor de um no
  * @author filipe.cazuza@academico.ifpb.edu.br
- * @param node - nó a ser decrementado
+ * @param nodeIndex - nó a ser decrementado
  * @param newKey - novo valor do nó
  */
-void Heap::heapDecreaseKey(int node, int newKey) {
-    this->heap[node] = newKey;
-    while (node != 0 && this->heap[this->getParent(node)] > this->heap[node]) {
-        int intermediate = this->heap[node];
-        this->heap[node] = this->heap[this->getParent(node)];
-        this->heap[this->getParent(node)] = intermediate;
+void Heap::heapDecreaseKey(int nodeIndex, int newKey) {
+    this->heap[nodeIndex - 1] = newKey;
+    while (nodeIndex != 1 && this->heap[this->getParent(nodeIndex) - 1] > this->heap[nodeIndex - 1]) {
+        int intermediate = this->heap[nodeIndex - 1];
+        this->heap[nodeIndex - 1] = this->heap[this->getParent(nodeIndex) - 1];
+        this->heap[this->getParent(nodeIndex) - 1] = intermediate;
 
-        node = this->getParent(node);
+        nodeIndex = this->getParent(nodeIndex);
     }
 }
 

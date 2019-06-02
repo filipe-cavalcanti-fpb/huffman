@@ -38,7 +38,7 @@ public:
 
     int getRight(int node);
 
-    void maxHeapify(int node);
+    void maxHeapify(int nodeIndex);
 
     void minHeapify(int node);
 

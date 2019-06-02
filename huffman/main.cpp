@@ -5,5 +5,16 @@
 using namespace std;
 
 int main() {
+    Heap *mimHeap = new Heap();
+    mimHeap->setHeapLength(10);
+    mimHeap->setHeapSize(10);
+    int a[10] = {4,1,3,2,16,9,10,14,8,7};
+    mimHeap->setHeap(a);
+    mimHeap->buildMaxHeap(a);
+
+    for(int i = 0; i < mimHeap->getHeapSize(); i++) {
+        cout << mimHeap->getHeap()[i] << endl;
+    }
+
     return 0;
 }

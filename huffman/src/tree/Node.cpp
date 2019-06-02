@@ -28,3 +28,11 @@ Node *Node::getLeft() const {
 void Node::setLeft(Node *left) {
     Node::left = left;
 }
+
+long Node::getPixelValue() const {
+    return pixelValue;
+}
+
+void Node::setPixelValue(long pixelValue) {
+    Node::pixelValue = pixelValue;
+}

@@ -12,6 +12,9 @@ private:
     int heapSize;
     int heapLength;
 public:
+    Heap();
+
+public:
     int getHeapLength() const;
 
     void setHeapLength(int heapLength);
@@ -35,13 +38,13 @@ public:
 
     int getRight(int node);
 
-    void maxHeapify(int node);
+    void maxHeapify(int nodeIndex);
 
-    void minHeapify(int node);
+    void minHeapify(int nodeIndex);
 
-    void buildMaxHeap(int* heap);
+    void buildMaxHeap();
 
-    void buildMinHeap(int *heap);
+    void buildMinHeap();
 
     int heapMaximum();
 
@@ -51,9 +54,9 @@ public:
 
     int heapExtractMin();
 
-    void heapIncreaseKey(int node, int newKey);
+    void heapIncreaseKey(int nodeIndex, int newKey);
 
-    void heapDecreaseKey(int node, int newKey);
+    void heapDecreaseKey(int nodeIndex, int newKey);
 
     void maxHeapInsert(int node);
 

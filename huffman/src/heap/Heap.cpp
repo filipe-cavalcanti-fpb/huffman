@@ -8,6 +8,7 @@
 
 #define HEAP_ENPTY_EXCPETION "HeapEnptyException"
 #define HEAP_MAX_SIZE_EXCEPTION "HeapMaxSizeException"
+#define ROOT 1
 
 int Heap::getParent(int node) {
     return node / 2;
@@ -21,20 +22,20 @@ int Heap::getRight(int node) {
     return 2 * node + 1;
 }
 
-void Heap::maxHeapify(int node) {
-    int left = this->getLeft(node);
-    int right = this->getRight(node);
+void Heap::maxHeapify(int nodeIndex) {
+    int left = this->getLeft(nodeIndex);
+    int right = this->getRight(nodeIndex);
     int better;
 
-    better = (left <= this->heapSize and this->heap[left] > this->heap()[node]) ? left : node;
-    better = (right <= this->heapSize and this->heap[right] > this->heap[better]) ? right : better;
+    better = (left <= this->heapSize and this->heap[left-1] > this->heap[nodeIndex-1]) ? left : nodeIndex;
+    better = (right <= this->heapSize and this->heap[right-1] > this->heap[better-1]) ? right : better;
 
-    if(better != i) {
-        int intermediate = this->heap[node];
-        this->heap[node] = this->heap[better];
-        this->heap[better] = intermediate;
+     if(better != nodeIndex) {
+        int intermediate = this->heap[nodeIndex-1];
+        this->heap[nodeIndex-1] = this->heap[better-1];
+        this->heap[better-1] = intermediate;
 
-        maxHeapfy(better);
+        this->maxHeapify(better);
     }
 }
 
@@ -58,18 +59,18 @@ void Heap::setHeapSize(int heapSize) {
     Heap::heapSize = heapSize;
 }
 
-void Heap::minHeapify(int node) {
-    int left = this->getLeft(node);
-    int right = this->getRight(node);
+void Heap::minHeapify(int nodeIndex) {
+    int left = this->getLeft(nodeIndex);
+    int right = this->getRight(nodeIndex);
     int small;
 
-    small = (left <= this->heapSize and this->heap()[left] < this->heap()[node]) ? left : node;
-    small = (right <= this->heapSize and this->heap[right] < this->heap[small]) ? right : small;
+    small = (left <= this->heapSize and this->heap[left-1] < this->heap[nodeIndex-1]) ? left : nodeIndex;
+    small = (right <= this->heapSize and this->heap[right-1] < this->heap[small-1]) ? right : small;
 
-    if(small != node) {
-        int intermediate = this->heap[node];
-        this->heap[node] = this->heap[small];
-        this->heap[small] = intermediate;
+    if(small != nodeIndex) {
+        int intermediate = this->heap[nodeIndex-1];
+        this->heap[nodeIndex-1] = this->heap[small-1];
+        this->heap[small-1] = intermediate;
 
         minHeapify(small);
     }
@@ -106,16 +107,18 @@ int Heap::heapMinimum() {
 /**
  * Método para extrair o maior valor em um heap máximo
  * @author filipe.cazuza@ifpb.edu.br
+ * @throw HEAP_ENPTY_EXCPETION
  * @return - Maior valor do heap maximo
  */
 int Heap::heapExtractMax() {
     if(this->heapSize < 1) {
         throw HEAP_ENPTY_EXCPETION;
     }
-    int max = this->heap[0];
-    this->heap[0] = this->heap[this->heapSize - 1];
-
-    return 0;
+    int max = this->heap[ROOT - 1];
+    this->heap[ROOT -1] = this->heap[this->heapSize - 1];
+    this->heapSize--;
+    this->maxHeapify(ROOT);
+    return max;
 }
 
 /**
@@ -124,24 +127,31 @@ int Heap::heapExtractMax() {
  * @return - Menor valor do heap minimo
  */
 int Heap::heapExtractMin() {
-    return 0;
+    if(this->heapSize < 1) {
+        throw HEAP_ENPTY_EXCPETION;
+    }
+    int small = this->heap[ROOT-1];
+    this->heap[ROOT - 1] = this->heap[this->heapSize - 1];
+    this->heapSize--;
+    this->minHeapify(ROOT);
+    return small;
 }
 
 /**
  * Método para incrementar o valor de um nó
  * @author filipe.cazuza@academico.ifpb.edu.br
- * @param node - nó a ser incrementado
+ * @param nodeIndex - nó a ser incrementado
  * @param newKey - novo valor do nó
  */
-void Heap::heapIncreaseKey(int node, int newKey) {
-    this->heap[node] = newKey;
-    while (node != 0 && this->heap[this->getParent(node)] > this->heap[node])
+void Heap::heapIncreaseKey(int nodeIndex, int newKey) {
+    this->heap[nodeIndex-1] = newKey;
+    while (nodeIndex != 0 && this->heap[this->getParent(nodeIndex)-1] < this->heap[nodeIndex-1])
     {
-        int intermediate = this->heap[node];
-        this->heap[node] = this->heap[this->getParent(node)];
-        this->heap[this->getParent(node)] = intermediate;
+        int intermediate = this->heap[nodeIndex - 1];
+        this->heap[nodeIndex - 1] = this->heap[this->getParent(nodeIndex) - 1];
+        this->heap[this->getParent(nodeIndex) - 1] = intermediate;
 
-        node = this->getParent(node);
+        nodeIndex = this->getParent(nodeIndex);
     }
 }
 
@@ -149,17 +159,17 @@ void Heap::heapIncreaseKey(int node, int newKey) {
 /**
  * Método para decrementar o valor de um no
  * @author filipe.cazuza@academico.ifpb.edu.br
- * @param node - nó a ser decrementado
+ * @param nodeIndex - nó a ser decrementado
  * @param newKey - novo valor do nó
  */
-void Heap::heapDecreaseKey(int node, int newKey) {
-    this->heap[node] = newKey;
-    while (node != 0 && this->heap[this->getParent(node)] > this->heap[node]) {
-        int intermediate = this->heap[node];
-        this->heap[node] = this->heap[this->getParent(node)];
-        this->heap[this->getParent(node)] = intermediate;
+void Heap::heapDecreaseKey(int nodeIndex, int newKey) {
+    this->heap[nodeIndex - 1] = newKey;
+    while (nodeIndex != 1 && this->heap[this->getParent(nodeIndex) - 1] > this->heap[nodeIndex - 1]) {
+        int intermediate = this->heap[nodeIndex - 1];
+        this->heap[nodeIndex - 1] = this->heap[this->getParent(nodeIndex) - 1];
+        this->heap[this->getParent(nodeIndex) - 1] = intermediate;
 
-        node = this->getParent(node);
+        nodeIndex = this->getParent(nodeIndex);
     }
 }
 
@@ -227,10 +237,9 @@ void Heap::setHeapLength(int heapLength) {
  * @author filipe.cazuza@ifpb.edu.br
  * @param heap - Array para o a construção do Heap minimo
  */
-void Heap::buildMaxHeap(int *heap) {
-    this->heapSize = heapSize;
-    for(int i = 0; i < heapSize; i++) {
-        this->maxHeapify(heap[i]);
+void Heap::buildMaxHeap() {
+    for(int i = heapSize/2; i >= 1 ; i--) {
+        this->maxHeapify(i);
     }
 }
 
@@ -239,9 +248,11 @@ void Heap::buildMaxHeap(int *heap) {
  * @author filipe.cazuza@ifpb.edu.br
  * @param heap - Array para o a construção do Heap minimo
  */
-void Heap::buildMinHeap(int *heap) {
+void Heap::buildMinHeap() {
     this->heapSize = heapSize;
-    for(int i = 0; i < heapSize; i++) {
-        this->minHeapify(heap[i]);
+    for(int i = heapSize / 2; i >= 1; i--) {
+        this->minHeapify(i);
     }
 }
+
+Heap::Heap() {}

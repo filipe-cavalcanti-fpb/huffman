@@ -6,9 +6,11 @@
 #define HUFFMAN_HEAP_H
 
 
+#include "../tree/Node.h"
+
 class Heap {
 private:
-    int* heap;
+    Node* heap;
     int heapSize;
     int heapLength;
 public:
@@ -20,9 +22,9 @@ public:
     void setHeapLength(int heapLength);
 
 public:
-    int *getHeap() const;
+    Node *getHeap() const;
 
-    void setHeap(int *heap);
+    void setHeap(Node *heap);
 
     int getHeapSize() const;
 
@@ -46,21 +48,21 @@ public:
 
     void buildMinHeap();
 
-    int heapMaximum();
+    Node heapMaximum();
 
-    int heapMinimum();
+    Node heapMinimum();
 
-    int heapExtractMax();
+    Node heapExtractMax();
 
-    int heapExtractMin();
+    Node heapExtractMin();
 
     void heapIncreaseKey(int nodeIndex, int newKey);
 
     void heapDecreaseKey(int nodeIndex, int newKey);
 
-    void maxHeapInsert(int node);
+    void maxHeapInsert(Node node);
 
-    void minHeapInsert(int node);
+    void minHeapInsert(Node node);
 };
 
 

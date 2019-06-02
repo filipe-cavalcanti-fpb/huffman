@@ -10,6 +10,11 @@ class Node {
 
 private:
     long frequency;
+    long pixelValue;
+public:
+    long getPixelValue() const;
+
+    void setPixelValue(long pixelValue);
 
 private:
     Node* right ;

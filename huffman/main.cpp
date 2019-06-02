@@ -2,6 +2,7 @@
 #include "opencv2/imgproc.hpp"
 #include "opencv2/highgui.hpp"
 #include "src/heap/Heap.h"
+#include "vector";
 
 using namespace cv;
 using namespace std;
@@ -20,6 +21,7 @@ int main() {
         return -1;
     }
 
+
     for(int x = 0; x < (img1.rows); x++)
     {
         for(int y = 0; y < (img1.cols); y++)
@@ -28,11 +30,21 @@ int main() {
         }
     }
 
+
     Heap *mimHeap = new Heap();
     mimHeap->setHeapLength(MAXPIXEL);
     mimHeap->setHeapSize(MAXPIXEL);
     mimHeap->setHeap(vet_frequency);
     mimHeap->buildMinHeap();
+
+    Node node[MAXPIXEL] = {0};
+
+
+    for(int i=0; i < MAXPIXEL; i++){
+        node->setFrequency(vet_frequency[i]);
+        node->setPixelValue(i);
+    }
+
 
 
     for(int i = 0; i < mimHeap->getHeapSize(); i++)

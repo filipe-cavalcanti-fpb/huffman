@@ -26,15 +26,15 @@ void Heap::maxHeapify(int node) {
     int right = this->getRight(node);
     int better;
 
-    better = (left <= this->heapSize and this->heap[left] > this->heap()[node]) ? left : node;
+    better = (left <= this->heapSize and this->heap[left] > this->heap[node]) ? left : node;
     better = (right <= this->heapSize and this->heap[right] > this->heap[better]) ? right : better;
 
-    if(better != i) {
+    if(better != node) {
         int intermediate = this->heap[node];
         this->heap[node] = this->heap[better];
         this->heap[better] = intermediate;
 
-        maxHeapfy(better);
+        this->maxHeapify(better);
     }
 }
 
@@ -63,7 +63,7 @@ void Heap::minHeapify(int node) {
     int right = this->getRight(node);
     int small;
 
-    small = (left <= this->heapSize and this->heap()[left] < this->heap()[node]) ? left : node;
+    small = (left <= this->heapSize and this->heap[left] < this->heap[node]) ? left : node;
     small = (right <= this->heapSize and this->heap[right] < this->heap[small]) ? right : small;
 
     if(small != node) {
@@ -245,3 +245,5 @@ void Heap::buildMinHeap(int *heap) {
         this->minHeapify(heap[i]);
     }
 }
+
+Heap::Heap() {}

@@ -12,6 +12,9 @@ private:
     int heapSize;
     int heapLength;
 public:
+    Heap();
+
+public:
     int getHeapLength() const;
 
     void setHeapLength(int heapLength);

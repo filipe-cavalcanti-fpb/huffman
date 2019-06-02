@@ -28,7 +28,6 @@ public:
 
     void setLeft(Node *left);
 
-
 };
 
 

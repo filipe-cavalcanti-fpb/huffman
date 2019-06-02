@@ -54,7 +54,7 @@ public:
 
     int heapExtractMin();
 
-    void heapIncreaseKey(int node, int newKey);
+    void heapIncreaseKey(int nodeIndex, int newKey);
 
     void heapDecreaseKey(int node, int newKey);
 

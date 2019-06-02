@@ -114,8 +114,8 @@ int Heap::heapExtractMax() {
     if(this->heapSize < 1) {
         throw HEAP_ENPTY_EXCPETION;
     }
-    int max = this->heap[0];
-    this->heap[0] = this->heap[this->heapSize - 1];
+    int max = this->heap[ROOT - 1];
+    this->heap[ROOT -1] = this->heap[this->heapSize - 1];
     this->heapSize--;
     this->maxHeapify(ROOT);
     return max;
@@ -127,7 +127,14 @@ int Heap::heapExtractMax() {
  * @return - Menor valor do heap minimo
  */
 int Heap::heapExtractMin() {
-    return 0;
+    if(this->heapSize < 1) {
+        throw HEAP_ENPTY_EXCPETION;
+    }
+    int small = this->heap[ROOT-1];
+    this->heap[ROOT - 1] = this->heap[this->heapSize - 1];
+    this->heapSize--;
+    this->minHeapify(ROOT);
+    return small;
 }
 
 /**

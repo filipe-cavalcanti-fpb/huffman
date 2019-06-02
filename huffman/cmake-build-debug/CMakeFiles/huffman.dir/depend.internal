@@ -4,6 +4,7 @@
 CMakeFiles/huffman.dir/main.cpp.o
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/main.cpp
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
+ /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/affine.hpp

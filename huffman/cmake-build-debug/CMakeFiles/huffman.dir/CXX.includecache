@@ -15,8 +15,12 @@ opencv2/highgui.hpp
 /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/opencv2/highgui.hpp
 src/heap/Heap.h
 /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
+src/tree/Node.h
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
 
 /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
+
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

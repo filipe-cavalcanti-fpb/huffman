@@ -3,6 +3,7 @@
 
 CMakeFiles/huffman.dir/main.cpp.o: ../main.cpp
 CMakeFiles/huffman.dir/main.cpp.o: ../src/heap/Heap.h
+CMakeFiles/huffman.dir/main.cpp.o: ../src/tree/Node.h
 CMakeFiles/huffman.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/calib3d.hpp
 CMakeFiles/huffman.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core.hpp
 CMakeFiles/huffman.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/affine.hpp

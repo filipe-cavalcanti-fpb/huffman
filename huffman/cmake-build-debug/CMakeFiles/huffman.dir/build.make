@@ -124,6 +124,21 @@ huffman: CMakeFiles/huffman.dir/src/tree/Node.cpp.o
 huffman: CMakeFiles/huffman.dir/src/tree/Tree.cpp.o
 huffman: CMakeFiles/huffman.dir/src/heap/Heap.cpp.o
 huffman: CMakeFiles/huffman.dir/build.make
+huffman: /usr/local/lib/libopencv_dnn.so.4.1.0
+huffman: /usr/local/lib/libopencv_gapi.so.4.1.0
+huffman: /usr/local/lib/libopencv_highgui.so.4.1.0
+huffman: /usr/local/lib/libopencv_ml.so.4.1.0
+huffman: /usr/local/lib/libopencv_objdetect.so.4.1.0
+huffman: /usr/local/lib/libopencv_photo.so.4.1.0
+huffman: /usr/local/lib/libopencv_stitching.so.4.1.0
+huffman: /usr/local/lib/libopencv_video.so.4.1.0
+huffman: /usr/local/lib/libopencv_videoio.so.4.1.0
+huffman: /usr/local/lib/libopencv_imgcodecs.so.4.1.0
+huffman: /usr/local/lib/libopencv_calib3d.so.4.1.0
+huffman: /usr/local/lib/libopencv_features2d.so.4.1.0
+huffman: /usr/local/lib/libopencv_flann.so.4.1.0
+huffman: /usr/local/lib/libopencv_imgproc.so.4.1.0
+huffman: /usr/local/lib/libopencv_core.so.4.1.0
 huffman: CMakeFiles/huffman.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable huffman"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/huffman.dir/link.txt --verbose=$(VERBOSE)

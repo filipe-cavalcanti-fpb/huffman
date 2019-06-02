@@ -10,9 +10,7 @@ int main() {
     mimHeap->setHeapSize(10);
     int a[10] = {4,1,3,2,16,9,10,14,8,7};
     mimHeap->setHeap(a);
-    mimHeap->buildMinHeap();
-
-    mimHeap->heapDecreaseKey(10, 0);
+    mimHeap->buildMaxHeap();
 
     for(int i = 0; i < mimHeap->getHeapSize(); i++) {
         cout << mimHeap->getHeap()[i] << endl;

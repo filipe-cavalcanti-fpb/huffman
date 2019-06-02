@@ -40,7 +40,7 @@ public:
 
     void maxHeapify(int nodeIndex);
 
-    void minHeapify(int node);
+    void minHeapify(int nodeIndex);
 
     void buildMaxHeap(int* heap);
 

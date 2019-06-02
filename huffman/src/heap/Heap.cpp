@@ -58,18 +58,18 @@ void Heap::setHeapSize(int heapSize) {
     Heap::heapSize = heapSize;
 }
 
-void Heap::minHeapify(int node) {
-    int left = this->getLeft(node);
-    int right = this->getRight(node);
+void Heap::minHeapify(int nodeIndex) {
+    int left = this->getLeft(nodeIndex);
+    int right = this->getRight(nodeIndex);
     int small;
 
-    small = (left <= this->heapSize and this->heap[left] < this->heap[node]) ? left : node;
-    small = (right <= this->heapSize and this->heap[right] < this->heap[small]) ? right : small;
+    small = (left <= this->heapSize and this->heap[left-1] < this->heap[nodeIndex-1]) ? left : nodeIndex;
+    small = (right <= this->heapSize and this->heap[right-1] < this->heap[small-1]) ? right : small;
 
-    if(small != node) {
-        int intermediate = this->heap[node];
-        this->heap[node] = this->heap[small];
-        this->heap[small] = intermediate;
+    if(small != nodeIndex) {
+        int intermediate = this->heap[nodeIndex-1];
+        this->heap[nodeIndex-1] = this->heap[small-1];
+        this->heap[small-1] = intermediate;
 
         minHeapify(small);
     }
@@ -240,8 +240,8 @@ void Heap::buildMaxHeap(int *heap) {
  */
 void Heap::buildMinHeap(int *heap) {
     this->heapSize = heapSize;
-    for(int i = 0; i < heapSize; i++) {
-        this->minHeapify(heap[i]);
+    for(int i = heapSize / 2; i >= 1; i--) {
+        this->minHeapify(i);
     }
 }
 

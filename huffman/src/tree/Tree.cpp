@@ -3,11 +3,25 @@
 //
 
 #include "Tree.h"
+#include <iostream>
 
-const Node &Tree::getRoot() const {
-    return root;
-}
+using namespace std;
 
-void Tree::setRoot(const Node &root) {
-    Tree::root = root;
+/**
+ * Método para construir os codeWord a partir da fila de prioridade minima
+ * @author filipe.cazuza@academico.ifpb.edu.br
+ * @param minHeap - fila de prioridade minima
+ */
+int Tree::builderCodeWord(Node *root, string codeWord, string* listCodeWords) {
+    if(root->getRight() == NULL && root->getRight() == NULL) {
+        cout << codeWord << endl;
+        return NULL;
+    }
+    codeWord.append("0");
+    this->builderCodeWord(root->getLeft(), codeWord, listCodeWords);
+    codeWord.pop_back();
+
+    codeWord.append("1");
+    this->builderCodeWord(root->getRight(), codeWord, listCodeWords);
+    codeWord.pop_back();
 }

@@ -7,14 +7,15 @@
 
 
 #include "Node.h"
+#include "../heap/Heap.h"
+#include <string>
+
+using namespace std;
 
 class Tree {
-private:
-    Node root;
 public:
-    const Node &getRoot() const;
 
-    void setRoot(const Node &root);
+    int builderCodeWord(Node *root, string codeWord, string* listCodeWords);
 
 };
 

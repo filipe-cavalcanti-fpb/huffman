@@ -178,47 +178,46 @@ void Heap::heapDecreaseKey(int nodeIndex, int newKey) {
  * @author filipe.cazuza@ifpb.edu.br
  * @param node - node a ser inserido no heap
  */
-//void Heap::maxHeapInsert(Node node) {
-//    if (this->heapSize == this->heapLength) {
-//        throw HEAP_MAX_SIZE_EXCEPTION;
-//    }
-//
-//    this->heapSize++;
-//    int i = this->heapSize - 1;
-//    this->heap[i] = node;
-//
-//    while (i != 0 && this->heap[this->getParent(node)] < this->heap[i]) {
-//        int intermediate = this->heap[node];
-//        this->heap[node] = this->heap[this->getParent(node)];
-//        this->heap[this->getParent(node)] = intermediate;
-//
-//        node = this->getParent(node);
-//    }
-//}
+void Heap::maxHeapInsert(Node node) {
+    if (this->heapSize == this->heapLength) {
+        throw HEAP_MAX_SIZE_EXCEPTION;
+    }
+
+    this->heapSize++;
+    int i = this->heapSize - 1;
+    this->heap[i] = node;
+
+    while (i != 0 && this->heap[this->getParent(i)].getFrequency() < this->heap[i].getFrequency()) {
+        Node intermediate = this->heap[i];
+        this->heap[i] = this->heap[this->getParent(i)];
+        this->heap[this->getParent(i)] = intermediate;
+
+        i = this->getParent(i);
+    }
+}
 
 /**
  * Método para inserir um elemento no heap minimo
  * @author filipe.cazuza@ifpb.edu.br
  * @param node - node a ser inserido no heap
  */
-//void Heap::minHeapInsert(int node) {
-//    if (this->heapSize == this->heapLength) {
-//        throw HEAP_MAX_SIZE_EXCEPTION;
-//    }
-//
-//    this->heapSize++;
-//    int i = this->heapSize - 1;
-//    this->heap[i] = node;
-//
-//    while (i != 0 && this->heap[this->getParent(node)] > this->heap[i]) {
-//        int intermediate = this->heap[node];
-//        this->heap[node] = this->heap[this->getParent(node)];
-//        this->heap[this->getParent(node)] = intermediate;
-//
-//        node = this->getParent(node);
-//    }
-//
-//}
+void Heap::minHeapInsert(Node node){
+    if (this->heapSize == this->heapLength) {
+        throw HEAP_MAX_SIZE_EXCEPTION;
+    }
+
+    this->heapSize++;
+    int i = this->heapSize - 1;
+    this->heap[i] = node;
+
+    while (i != 0 && this->heap[this->getParent(i)].getFrequency() > this->heap[i].getFrequency()) {
+        Node intermediate = this->heap[i];
+        this->heap[i] = this->heap[this->getParent(i)];
+        this->heap[this->getParent(i)] = intermediate;
+
+        i = this->getParent(i);
+    }
+}
 
 int Heap::getHeapLength() const {
     return heapLength;

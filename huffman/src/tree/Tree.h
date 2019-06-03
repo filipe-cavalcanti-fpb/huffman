@@ -18,6 +18,8 @@ public:
 
     int builderCodeWord(Node *root, string codeWord, vector <char*> *listCodeWords, int i);
 
+    Tree builderHuffman(Heap minHeap);
+
 };
 
 

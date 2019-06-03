@@ -30,3 +30,18 @@ int Tree::builderCodeWord(Node *root, string codeWord, vector <char*> *listCodeW
     this->builderCodeWord(root->getRight(), codeWord, listCodeWords, i++);
     codeWord.pop_back();
 }
+
+Tree Tree::builderHuffman(Heap minHeap) {
+
+    for(int i = 0; i < minHeap.getHeapSize(); i++) {
+        Node *intermediateNode = new Node();
+
+        intermediateNode->setLeft(minHeap.heapExtractMin());
+        intermediateNode->setRight(minHeap.heapExtractMin());
+
+        intermediateNode->setFrequency(intermediateNode->getLeft()->getFrequency() + intermediateNode->getRight()->getFrequency());
+
+
+    }
+    return Tree();
+}

@@ -27,13 +27,15 @@ public:
 
     void setFrequency(long frequency);
 
+    Node();
+
     Node *getRight() const;
 
-    void setRight(Node *right);
+    void setRight(Node right);
 
     Node *getLeft() const;
 
-    void setLeft(Node *left);
+    void setLeft(Node left);
 
 };
 

@@ -6,15 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
+/home/filipecavalcanti/huffman/huffman/main.cpp
+iostream
+-
+src/tree/Node.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Node.h
+src/heap/Heap.h
+/home/filipecavalcanti/huffman/huffman/src/heap/Heap.h
+src/tree/Tree.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Tree.h
+string
+-
+vector
+-
+
+/home/filipecavalcanti/huffman/huffman/src/heap/Heap.cpp
+Heap.h
+/home/filipecavalcanti/huffman/huffman/src/heap/Heap.h
+climits
+-
+
+/home/filipecavalcanti/huffman/huffman/src/heap/Heap.h
 ../tree/Node.h
-/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Node.h
 
-/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Node.cpp
+Node.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Node.h
 
-/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.cpp
+/home/filipecavalcanti/huffman/huffman/src/tree/Node.h
+
+/home/filipecavalcanti/huffman/huffman/src/tree/Tree.cpp
 Tree.h
-/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Tree.h
 iostream
 -
 cstring
@@ -22,11 +46,11 @@ cstring
 vector
 -
 
-/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Tree.h
 Node.h
-/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Node.h
 ../heap/Heap.h
-/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
+/home/filipecavalcanti/huffman/huffman/src/heap/Heap.h
 string
 -
 vector

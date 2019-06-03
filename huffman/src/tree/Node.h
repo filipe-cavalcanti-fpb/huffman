@@ -12,6 +12,8 @@ private:
     long frequency;
     long pixelValue;
 public:
+    Node(long frequency, long pixelValue, Node *right, Node *left);
+
     long getPixelValue() const;
 
     void setPixelValue(long pixelValue);

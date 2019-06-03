@@ -14,11 +14,26 @@
 using namespace std;
 
 class Tree {
+
+private:
+    Node root;
 public:
+    Tree(const Node &root);
 
-    int builderCodeWord(Node *root, string codeWord, vector <char*> *listCodeWords, int i);
+public:
+    Tree();
 
+    const Node &getRoot() const;
+
+    void setRoot(const Node &root);
+
+private:
+    int builderCodeWord_(Node *root, string codeWord, vector <char*> *listCodeWords);
+
+public:
     Tree builderHuffman(Heap minHeap);
+
+    vector <char*> * builderCodeWord();
 
 };
 

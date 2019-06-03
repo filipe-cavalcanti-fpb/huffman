@@ -168,7 +168,6 @@ void Heap::heapDecreaseKey(int nodeIndex, int newKey) {
         int intermediate = this->heap[nodeIndex - 1];
         this->heap[nodeIndex - 1] = this->heap[this->getParent(nodeIndex) - 1];
         this->heap[this->getParent(nodeIndex) - 1] = intermediate;
-
         nodeIndex = this->getParent(nodeIndex);
     }
 }

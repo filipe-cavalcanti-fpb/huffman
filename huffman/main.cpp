@@ -2,8 +2,9 @@
 #include "opencv2/imgproc.hpp"
 #include "opencv2/highgui.hpp"
 #include "src/heap/Heap.h"
-#include "vector";
+#include "src/tree/Node.h"
 
+typedef Node NodeTree;
 using namespace cv;
 using namespace std;
 
@@ -37,19 +38,18 @@ int main() {
     mimHeap->setHeap(vet_frequency);
     mimHeap->buildMinHeap();
 
-    Node node[MAXPIXEL] = {0};
-
-
+    NodeTree *nodeTree = new NodeTree[MAXPIXEL];
     for(int i=0; i < MAXPIXEL; i++){
-        node->setFrequency(vet_frequency[i]);
-        node->setPixelValue(i);
+        nodeTree[i].setFrequency(vet_frequency[i]);
+        nodeTree[i].setPixelValue(i);
     }
-
 
 
     for(int i = 0; i < mimHeap->getHeapSize(); i++)
     {
         cout << mimHeap->getHeap()[i] << endl;
     }
+
+
     return 0;
 }

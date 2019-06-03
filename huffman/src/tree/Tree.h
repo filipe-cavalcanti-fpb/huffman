@@ -9,13 +9,14 @@
 #include "Node.h"
 #include "../heap/Heap.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Tree {
 public:
 
-    int builderCodeWord(Node *root, string codeWord, string* listCodeWords, int i);
+    int builderCodeWord(Node *root, string codeWord, vector <char*> *listCodeWords, int i);
 
 };
 

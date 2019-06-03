@@ -3,6 +3,7 @@
 #include "src/heap/Heap.h"
 #include "src/tree/Tree.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -24,13 +25,14 @@ int main() {
     Tree *t = new Tree();
 
     string b = "";
-    string *s = new string[10];
-    t->builderCodeWord(nt3, b, s, 0);
+    vector <char*> string_word;
 
-    cout << s[0] << endl;
-    cout << s[1] << endl;
-    cout << s[2] << endl;
-    cout << s[3] << endl;
+    t->builderCodeWord(nt3, b, &string_word, 0);
+    vector <char*>::iterator a;
+
+    for(a = string_word.begin();a <string_word.end();a++){
+        cout << *a<<endl;
+    }
 
     return 0;
 }

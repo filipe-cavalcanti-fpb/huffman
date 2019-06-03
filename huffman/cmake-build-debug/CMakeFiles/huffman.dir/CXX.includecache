@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
+../tree/Node.h
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
+
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
+
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.cpp
+Tree.h
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.h
+iostream
+-
+cstring
+-
+vector
+-
+
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.h
+Node.h
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
+../heap/Heap.h
+/home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
+string
+-
+vector
+-
+

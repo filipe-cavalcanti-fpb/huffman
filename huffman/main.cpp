@@ -3,6 +3,9 @@
 #include "opencv2/highgui.hpp"
 #include "src/heap/Heap.h"
 #include "src/tree/Node.h"
+#include "src/tree/Tree.h"
+#include <string>
+#include <vector>
 
 typedef Node NodeTree;
 using namespace cv;
@@ -31,23 +34,42 @@ int main() {
         }
     }
 
+    vector <NodeTree*> nodeTree;
+    for(int i=0; i < MAXPIXEL; i++) {
+        NodeTree *node = new NodeTree(vet_frequency[i], i, NULL, NULL);
+        nodeTree.push_back(node);
+    }
 
     Heap *mimHeap = new Heap();
     mimHeap->setHeapLength(MAXPIXEL);
     mimHeap->setHeapSize(MAXPIXEL);
-    mimHeap->setHeap(vet_frequency);
-    mimHeap->buildMinHeap();
-
-    NodeTree *nodeTree = new NodeTree[MAXPIXEL];
-    for(int i=0; i < MAXPIXEL; i++){
-        nodeTree[i].setFrequency(vet_frequency[i]);
-        nodeTree[i].setPixelValue(i);
-    }
 
 
-    for(int i = 0; i < mimHeap->getHeapSize(); i++)
-    {
-        cout << mimHeap->getHeap()[i] << endl;
+
+   /* mimHeap->setHeapLength(10);
+    mimHeap->setHeapSize(10);
+    Node *n1 = new Node(4, 1l, NULL, NULL);
+    Node *n2 = new Node(1, 1l, NULL, NULL);
+    Node *n3 = new Node(3, 1l, NULL, NULL);
+    Node *n4 = new Node(2, 1l, NULL, NULL);
+
+
+    Node *nt1 = new Node(3,1l,n1, n2);
+
+    Node *nt2 = new Node(6, 1l, n3, nt1);
+
+    Node *nt3 = new Node(10, 1l, n4, nt2);*/
+
+    Tree *t = new Tree();
+
+    string b = "";
+    vector <char*> string_word;
+
+    t->builderCodeWord(nt3, b, &string_word, 0);
+    vector <char*>::iterator a;
+
+    for(a = string_word.begin();a <string_word.end();a++){
+        cout << *a<<endl;
     }
 
 

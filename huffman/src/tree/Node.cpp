@@ -36,3 +36,6 @@ long Node::getPixelValue() const {
 void Node::setPixelValue(long pixelValue) {
     Node::pixelValue = pixelValue;
 }
+
+Node::Node(long frequency, long pixelValue, Node *right, Node *left) : frequency(frequency), pixelValue(pixelValue),
+                                                                       right(right), left(left) {}

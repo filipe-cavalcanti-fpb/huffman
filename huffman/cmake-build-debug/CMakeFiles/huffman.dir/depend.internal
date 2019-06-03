@@ -5,6 +5,7 @@ CMakeFiles/huffman.dir/main.cpp.o
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/main.cpp
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
+ /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.h
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/affine.hpp
@@ -105,10 +106,12 @@ CMakeFiles/huffman.dir/main.cpp.o
 CMakeFiles/huffman.dir/src/heap/Heap.cpp.o
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.cpp
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
+ /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
 CMakeFiles/huffman.dir/src/tree/Node.cpp.o
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.cpp
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
 CMakeFiles/huffman.dir/src/tree/Tree.cpp.o
+ /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/heap/Heap.h
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Node.h
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.cpp
  /home/leonardo/Documentos/atal/projeto/projeto/huffman/huffman/src/tree/Tree.h

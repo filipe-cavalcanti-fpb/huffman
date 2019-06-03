@@ -27,11 +27,11 @@ void Heap::maxHeapify(int nodeIndex) {
     int right = this->getRight(nodeIndex);
     int better;
 
-    better = (left <= this->heapSize and this->heap[left-1] > this->heap[nodeIndex-1]) ? left : nodeIndex;
-    better = (right <= this->heapSize and this->heap[right-1] > this->heap[better-1]) ? right : better;
+    better = (left <= this->heapSize and this->heap[left-1].getFrequency() > this->heap[nodeIndex-1].getFrequency()) ? left : nodeIndex;
+    better = (right <= this->heapSize and this->heap[right-1].getFrequency() > this->heap[better-1].getFrequency()) ? right : better;
 
      if(better != nodeIndex) {
-        int intermediate = this->heap[nodeIndex-1];
+        Node intermediate = this->heap[nodeIndex-1];
         this->heap[nodeIndex-1] = this->heap[better-1];
         this->heap[better-1] = intermediate;
 
@@ -43,11 +43,11 @@ Heap::Heap(int heapSize) : heapSize(heapSize) {
     this->heapSize = heapSize;
 }
 
-int *Heap::getHeap() const {
+Node *Heap::getHeap() const {
     return heap;
 }
 
-void Heap::setHeap(int *heap) {
+void Heap::setHeap(Node *heap) {
     Heap::heap = heap;
 }
 
@@ -64,11 +64,11 @@ void Heap::minHeapify(int nodeIndex) {
     int right = this->getRight(nodeIndex);
     int small;
 
-    small = (left <= this->heapSize and this->heap[left-1] < this->heap[nodeIndex-1]) ? left : nodeIndex;
-    small = (right <= this->heapSize and this->heap[right-1] < this->heap[small-1]) ? right : small;
+    small = (left <= this->heapSize and this->heap[left-1].getFrequency() < this->heap[nodeIndex-1].getFrequency()) ? left : nodeIndex;
+    small = (right <= this->heapSize and this->heap[right-1].getFrequency() < this->heap[small-1].getFrequency()) ? right : small;
 
     if(small != nodeIndex) {
-        int intermediate = this->heap[nodeIndex-1];
+        Node intermediate = this->heap[nodeIndex-1];
         this->heap[nodeIndex-1] = this->heap[small-1];
         this->heap[small-1] = intermediate;
 
@@ -81,7 +81,7 @@ void Heap::minHeapify(int nodeIndex) {
  * @author filipe.cazuza@ifpb.edu.br
  * @return - a raiz do heap maximo
  */
-int Heap::heapMaximum() {
+Node Heap::heapMaximum() {
     if(this->heapSize > 0) {
         return this->heap[0];
     }
@@ -95,7 +95,7 @@ int Heap::heapMaximum() {
  * @author filipe.cazuza@ifpb.edu.br
  * @return - a raiz do heap minimo
  */
-int Heap::heapMinimum() {
+Node Heap::heapMinimum() {
     if(this->heapSize > 0) {
         return this->heap[0];
     }
@@ -110,11 +110,11 @@ int Heap::heapMinimum() {
  * @throw HEAP_ENPTY_EXCPETION
  * @return - Maior valor do heap maximo
  */
-int Heap::heapExtractMax() {
+Node Heap::heapExtractMax() {
     if(this->heapSize < 1) {
         throw HEAP_ENPTY_EXCPETION;
     }
-    int max = this->heap[ROOT - 1];
+    Node max = this->heap[ROOT - 1];
     this->heap[ROOT -1] = this->heap[this->heapSize - 1];
     this->heapSize--;
     this->maxHeapify(ROOT);
@@ -126,11 +126,11 @@ int Heap::heapExtractMax() {
  * @author filipe.cazuza@ifpb.edu.br
  * @return - Menor valor do heap minimo
  */
-int Heap::heapExtractMin() {
+Node Heap::heapExtractMin() {
     if(this->heapSize < 1) {
         throw HEAP_ENPTY_EXCPETION;
     }
-    int small = this->heap[ROOT-1];
+    Node small = this->heap[ROOT-1];
     this->heap[ROOT - 1] = this->heap[this->heapSize - 1];
     this->heapSize--;
     this->minHeapify(ROOT);
@@ -144,10 +144,10 @@ int Heap::heapExtractMin() {
  * @param newKey - novo valor do nó
  */
 void Heap::heapIncreaseKey(int nodeIndex, int newKey) {
-    this->heap[nodeIndex-1] = newKey;
-    while (nodeIndex != 0 && this->heap[this->getParent(nodeIndex)-1] < this->heap[nodeIndex-1])
+    this->heap[nodeIndex-1].setFrequency(newKey);
+    while (nodeIndex != 0 && this->heap[this->getParent(nodeIndex)-1].getFrequency() < this->heap[nodeIndex-1].getFrequency())
     {
-        int intermediate = this->heap[nodeIndex - 1];
+        Node intermediate = this->heap[nodeIndex - 1];
         this->heap[nodeIndex - 1] = this->heap[this->getParent(nodeIndex) - 1];
         this->heap[this->getParent(nodeIndex) - 1] = intermediate;
 
@@ -163,9 +163,9 @@ void Heap::heapIncreaseKey(int nodeIndex, int newKey) {
  * @param newKey - novo valor do nó
  */
 void Heap::heapDecreaseKey(int nodeIndex, int newKey) {
-    this->heap[nodeIndex - 1] = newKey;
-    while (nodeIndex != 1 && this->heap[this->getParent(nodeIndex) - 1] > this->heap[nodeIndex - 1]) {
-        int intermediate = this->heap[nodeIndex - 1];
+    this->heap[nodeIndex - 1].setFrequency(newKey);
+    while (nodeIndex != 1 && this->heap[this->getParent(nodeIndex) - 1].getFrequency() > this->heap[nodeIndex - 1].getFrequency()) {
+        Node intermediate = this->heap[nodeIndex - 1];
         this->heap[nodeIndex - 1] = this->heap[this->getParent(nodeIndex) - 1];
         this->heap[this->getParent(nodeIndex) - 1] = intermediate;
         nodeIndex = this->getParent(nodeIndex);
@@ -177,47 +177,47 @@ void Heap::heapDecreaseKey(int nodeIndex, int newKey) {
  * @author filipe.cazuza@ifpb.edu.br
  * @param node - node a ser inserido no heap
  */
-void Heap::maxHeapInsert(int node) {
-    if (this->heapSize == this->heapLength) {
-        throw HEAP_MAX_SIZE_EXCEPTION;
-    }
-
-    this->heapSize++;
-    int i = this->heapSize - 1;
-    this->heap[i] = node;
-
-    while (i != 0 && this->heap[this->getParent(node)] < this->heap[i]) {
-        int intermediate = this->heap[node];
-        this->heap[node] = this->heap[this->getParent(node)];
-        this->heap[this->getParent(node)] = intermediate;
-
-        node = this->getParent(node);
-    }
-}
+//void Heap::maxHeapInsert(Node node) {
+//    if (this->heapSize == this->heapLength) {
+//        throw HEAP_MAX_SIZE_EXCEPTION;
+//    }
+//
+//    this->heapSize++;
+//    int i = this->heapSize - 1;
+//    this->heap[i] = node;
+//
+//    while (i != 0 && this->heap[this->getParent(node)] < this->heap[i]) {
+//        int intermediate = this->heap[node];
+//        this->heap[node] = this->heap[this->getParent(node)];
+//        this->heap[this->getParent(node)] = intermediate;
+//
+//        node = this->getParent(node);
+//    }
+//}
 
 /**
  * Método para inserir um elemento no heap minimo
  * @author filipe.cazuza@ifpb.edu.br
  * @param node - node a ser inserido no heap
  */
-void Heap::minHeapInsert(int node) {
-    if (this->heapSize == this->heapLength) {
-        throw HEAP_MAX_SIZE_EXCEPTION;
-    }
-
-    this->heapSize++;
-    int i = this->heapSize - 1;
-    this->heap[i] = node;
-
-    while (i != 0 && this->heap[this->getParent(node)] > this->heap[i]) {
-        int intermediate = this->heap[node];
-        this->heap[node] = this->heap[this->getParent(node)];
-        this->heap[this->getParent(node)] = intermediate;
-
-        node = this->getParent(node);
-    }
-
-}
+//void Heap::minHeapInsert(int node) {
+//    if (this->heapSize == this->heapLength) {
+//        throw HEAP_MAX_SIZE_EXCEPTION;
+//    }
+//
+//    this->heapSize++;
+//    int i = this->heapSize - 1;
+//    this->heap[i] = node;
+//
+//    while (i != 0 && this->heap[this->getParent(node)] > this->heap[i]) {
+//        int intermediate = this->heap[node];
+//        this->heap[node] = this->heap[this->getParent(node)];
+//        this->heap[this->getParent(node)] = intermediate;
+//
+//        node = this->getParent(node);
+//    }
+//
+//}
 
 int Heap::getHeapLength() const {
     return heapLength;

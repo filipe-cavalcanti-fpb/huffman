@@ -4,6 +4,7 @@
 CMakeFiles/huffman.dir/main.cpp.o: ../main.cpp
 CMakeFiles/huffman.dir/main.cpp.o: ../src/heap/Heap.h
 CMakeFiles/huffman.dir/main.cpp.o: ../src/tree/Node.h
+CMakeFiles/huffman.dir/main.cpp.o: ../src/tree/Tree.h
 CMakeFiles/huffman.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/calib3d.hpp
 CMakeFiles/huffman.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core.hpp
 CMakeFiles/huffman.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/affine.hpp
@@ -104,10 +105,12 @@ CMakeFiles/huffman.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/videoio.hp
 
 CMakeFiles/huffman.dir/src/heap/Heap.cpp.o: ../src/heap/Heap.cpp
 CMakeFiles/huffman.dir/src/heap/Heap.cpp.o: ../src/heap/Heap.h
+CMakeFiles/huffman.dir/src/heap/Heap.cpp.o: ../src/tree/Node.h
 
 CMakeFiles/huffman.dir/src/tree/Node.cpp.o: ../src/tree/Node.cpp
 CMakeFiles/huffman.dir/src/tree/Node.cpp.o: ../src/tree/Node.h
 
+CMakeFiles/huffman.dir/src/tree/Tree.cpp.o: ../src/heap/Heap.h
 CMakeFiles/huffman.dir/src/tree/Tree.cpp.o: ../src/tree/Node.h
 CMakeFiles/huffman.dir/src/tree/Tree.cpp.o: ../src/tree/Tree.cpp
 CMakeFiles/huffman.dir/src/tree/Tree.cpp.o: ../src/tree/Tree.h

@@ -7,6 +7,8 @@
 #include <cstring>
 #include <vector>
 
+#define INTERMEDIATE_NODE -1
+
 using namespace std;
 
 /**
@@ -41,6 +43,9 @@ Tree Tree::builderHuffman(Heap minHeap) {
 
         intermediateNode->setFrequency(intermediateNode->getLeft()->getFrequency() + intermediateNode->getRight()->getFrequency());
 
+        intermediateNode->setPixelValue(INTERMEDIATE_NODE);
+
+        minHeap.minHeapInsert(*intermediateNode);
 
     }
     return Tree();

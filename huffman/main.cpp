@@ -25,7 +25,12 @@ int main() {
 
     string b = "";
     string *s = new string[10];
-    t->builderCodeWord(nt3, b, s);
+    t->builderCodeWord(nt3, b, s, 0);
+
+    cout << s[0] << endl;
+    cout << s[1] << endl;
+    cout << s[2] << endl;
+    cout << s[3] << endl;
 
     return 0;
 }

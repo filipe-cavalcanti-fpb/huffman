@@ -15,7 +15,7 @@ using namespace std;
 class Tree {
 public:
 
-    int builderCodeWord(Node *root, string codeWord, string* listCodeWords);
+    int builderCodeWord(Node *root, string codeWord, string* listCodeWords, int i);
 
 };
 

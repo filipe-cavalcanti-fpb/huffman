@@ -4,6 +4,7 @@
 
 #include "Tree.h"
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -12,16 +13,16 @@ using namespace std;
  * @author filipe.cazuza@academico.ifpb.edu.br
  * @param minHeap - fila de prioridade minima
  */
-int Tree::builderCodeWord(Node *root, string codeWord, string* listCodeWords) {
+int Tree::builderCodeWord(Node *root, string codeWord, string* listCodeWords, int i) {
     if(root->getRight() == NULL && root->getRight() == NULL) {
-        cout << codeWord << endl;
+        listCodeWords[i] = codeWord.substr(0, codeWord.size());
         return NULL;
     }
     codeWord.append("0");
-    this->builderCodeWord(root->getLeft(), codeWord, listCodeWords);
+    this->builderCodeWord(root->getLeft(), codeWord, listCodeWords, i++);
     codeWord.pop_back();
 
     codeWord.append("1");
-    this->builderCodeWord(root->getRight(), codeWord, listCodeWords);
+    this->builderCodeWord(root->getRight(), codeWord, listCodeWords, i++);
     codeWord.pop_back();
 }

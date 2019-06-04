@@ -26,6 +26,16 @@ vector
 
 /home/filipecavalcanti/huffman/huffman/src/tree/Node.h
 
+/home/filipecavalcanti/huffman/huffman/src/tree/Tree.cpp
+Tree.h
+/home/filipecavalcanti/huffman/huffman/src/tree/Tree.h
+iostream
+-
+cstring
+-
+vector
+-
+
 /home/filipecavalcanti/huffman/huffman/src/tree/Tree.h
 Node.h
 /home/filipecavalcanti/huffman/huffman/src/tree/Node.h

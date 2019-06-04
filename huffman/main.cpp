@@ -35,7 +35,7 @@ int main() {
     string b = "";
     vector <char*> string_word;
 
-    t->builderCodeWord(nt3, b, &string_word, 0);
+    t->builderCodeWord();
     vector <char*>::iterator a;
 
     for(a = string_word.begin();a <string_word.end();a++){

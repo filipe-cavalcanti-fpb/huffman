@@ -71,7 +71,7 @@ public:
 
     void maxHeapInsert(Node node);
 
-    void minHeapInsert(Node node);
+    void minHeapInsert(Node* node);
 };
 
 

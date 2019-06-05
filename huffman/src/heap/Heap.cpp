@@ -131,7 +131,7 @@ Node Heap::heapExtractMax() {
  */
 Node* Heap::heapExtractMin() {
     if(this->heapSize < 1) {
-        throw HEAP_ENPTY_EXCPETION;
+        return nullptr;
     }
     Node *small = this->heap[0];
     this->heap[ROOT - 1] = this->heap[this->heapSize - 1];
@@ -204,14 +204,14 @@ void Heap::maxHeapInsert(Node node) {
  * @author filipe.cazuza@ifpb.edu.br
  * @param node - node a ser inserido no heap
  */
-void Heap::minHeapInsert(Node node){
+void Heap::minHeapInsert(Node* node){
     if (this->heapSize == this->heapLength) {
         throw HEAP_MAX_SIZE_EXCEPTION;
     }
 
     this->heapSize++;
     int i = this->heapSize - 1;
-    this->heap[i] = &node;
+    this->heap[i] = node;
 
     while (i != 0 && this->heap[this->getParent(i)]->getFrequency() > this->heap[i]->getFrequency()) {
         Node *intermediate = this->heap[i];

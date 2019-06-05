@@ -18,9 +18,10 @@ using namespace std;
  */
 int Tree::builderCodeWord_(Node *root, string codeWord, vector <char*> *listCodeWords) {
     if(root->getRight() == NULL && root->getRight() == NULL) {
+        cout << codeWord << " ---- " << root->getFrequency() << endl;
         char * word_aux = new char [codeWord.length()+1];
         strcpy(word_aux, codeWord.c_str());
-        listCodeWords->push_back(word_aux);
+        //listCodeWords->push_back(word_aux);
 
         return NULL;
     }
@@ -33,9 +34,9 @@ int Tree::builderCodeWord_(Node *root, string codeWord, vector <char*> *listCode
     codeWord.pop_back();
 }
 
-Tree Tree::builderHuffman(Heap *minHeap) {
-
-    for(int i = 0; i < minHeap->getHeapSize(); i++) {
+Tree* Tree::builderHuffman(Heap *minHeap) {
+    int heapSize = minHeap->getHeapSize();
+    for(int i = 0; i < heapSize - 1; i++) {
         Node *intermediateNode = new Node();
 
         intermediateNode->setLeft(minHeap->heapExtractMin());
@@ -45,32 +46,29 @@ Tree Tree::builderHuffman(Heap *minHeap) {
 
         intermediateNode->setPixelValue(INTERMEDIATE_NODE);
 
-        minHeap->minHeapInsert(*intermediateNode);
+        minHeap->minHeapInsert(intermediateNode);
 
     }
 
-    Tree *resultTree = new Tree();
-    resultTree->setRoot(*minHeap->heapExtractMin());
-
-    return *resultTree;
+    return new Tree(minHeap->heapExtractMin());
 }
 
 const Node &Tree::getRoot() const {
     return root;
 }
 
-void Tree::setRoot(const Node &root) {
-    Tree::root = root;
+void Tree::setRoot(Node* root) {
+    Tree::root = *root;
 }
 
-Tree::Tree(const Node &root) : root(root) {}
+Tree::Tree(const Node *root) : root(*root) {}
 
 Tree::Tree() { }
 
-vector<char *> *Tree::builderCodeWord() {
+vector<char *> Tree::builderCodeWord() {
     vector<char *> listCodeWord;
     string code = "";
     this->builderCodeWord_(&this->root, code, &listCodeWord);
 
-    return &listCodeWord;
+    return listCodeWord;
 }

@@ -18,22 +18,22 @@ class Tree {
 private:
     Node root;
 public:
-    Tree(const Node &root);
+    Tree(const Node *root);
 
 public:
     Tree();
 
     const Node &getRoot() const;
 
-    void setRoot(const Node &root);
+    void setRoot(Node* root);
 
 private:
     int builderCodeWord_(Node *root, string codeWord, vector <char*> *listCodeWords);
 
 public:
-    Tree builderHuffman(Heap *minHeap);
+    Tree* builderHuffman(Heap *minHeap);
 
-    vector <char*> * builderCodeWord();
+    vector <char*> builderCodeWord();
 
 };
 

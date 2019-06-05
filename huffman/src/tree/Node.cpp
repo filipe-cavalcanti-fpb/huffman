@@ -17,16 +17,16 @@ Node *Node::getRight() const {
     return right;
 }
 
-void Node::setRight(Node right) {
-    Node::right = &right;
+void Node::setRight(Node* right) {
+    Node::right = right;
 }
 
 Node *Node::getLeft() const {
     return left;
 }
 
-void Node::setLeft(Node left) {
-    Node::left = &left;
+void Node::setLeft(Node* left) {
+    Node::left = left;
 }
 
 long Node::getPixelValue() const {

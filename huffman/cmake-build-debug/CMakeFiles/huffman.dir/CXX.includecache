@@ -6,23 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/filipecavalcanti/huffman/huffman/main.cpp
-iostream
--
-src/tree/Node.h
-/home/filipecavalcanti/huffman/huffman/src/tree/Node.h
-src/heap/Heap.h
-/home/filipecavalcanti/huffman/huffman/src/heap/Heap.h
-src/tree/Tree.h
-/home/filipecavalcanti/huffman/huffman/src/tree/Tree.h
-string
--
-vector
--
-
 /home/filipecavalcanti/huffman/huffman/src/heap/Heap.h
 ../tree/Node.h
 /home/filipecavalcanti/huffman/huffman/src/tree/Node.h
+vector
+-
 
 /home/filipecavalcanti/huffman/huffman/src/tree/Node.h
 

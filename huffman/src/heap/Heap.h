@@ -7,12 +7,21 @@
 
 
 #include "../tree/Node.h"
+#include <vector>
+
+using namespace std;
 
 class Heap {
 private:
-    Node* heap;
+    vector<Node *> heap;
     int heapSize;
     int heapLength;
+    int reference = 0;
+public:
+    int getReference() const;
+
+    void increaseReference();
+
 public:
     Heap();
 
@@ -22,9 +31,9 @@ public:
     void setHeapLength(int heapLength);
 
 public:
-    Node *getHeap() const;
+    vector<Node *> getHeap() const;
 
-    void setHeap(Node *heap);
+    void setHeap(vector<Node *> heap);
 
     int getHeapSize() const;
 
@@ -54,7 +63,7 @@ public:
 
     Node heapExtractMax();
 
-    Node heapExtractMin();
+    Node* heapExtractMin();
 
     void heapIncreaseKey(int nodeIndex, int newKey);
 

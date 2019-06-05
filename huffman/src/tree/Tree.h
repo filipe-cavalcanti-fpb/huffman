@@ -31,7 +31,7 @@ private:
     int builderCodeWord_(Node *root, string codeWord, vector <char*> *listCodeWords);
 
 public:
-    Tree builderHuffman(Heap minHeap);
+    Tree builderHuffman(Heap *minHeap);
 
     vector <char*> * builderCodeWord();
 

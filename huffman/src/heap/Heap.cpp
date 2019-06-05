@@ -27,11 +27,11 @@ void Heap::maxHeapify(int nodeIndex) {
     int right = this->getRight(nodeIndex);
     int better;
 
-    better = (left <= this->heapSize and this->heap[left-1].getFrequency() > this->heap[nodeIndex-1].getFrequency()) ? left : nodeIndex;
-    better = (right <= this->heapSize and this->heap[right-1].getFrequency() > this->heap[better-1].getFrequency()) ? right : better;
+    better = (left <= this->heapSize and this->heap[left-1]->getFrequency() > this->heap[nodeIndex-1]->getFrequency()) ? left : nodeIndex;
+    better = (right <= this->heapSize and this->heap[right-1]->getFrequency() > this->heap[better-1]->getFrequency()) ? right : better;
 
      if(better != nodeIndex) {
-        Node intermediate = this->heap[nodeIndex-1];
+        Node* intermediate = this->heap[nodeIndex-1];
         this->heap[nodeIndex-1] = this->heap[better-1];
         this->heap[better-1] = intermediate;
 
@@ -43,12 +43,14 @@ Heap::Heap(int heapSize) : heapSize(heapSize) {
     this->heapSize = heapSize;
 }
 
-Node *Heap::getHeap() const {
+vector<Node *> Heap::getHeap() const {
     return heap;
 }
 
-void Heap::setHeap(Node *heap) {
-    Heap::heap = heap;
+void Heap::setHeap(vector<Node *> heapp) {
+    for(int i = 0; i < this->heapLength; i++){
+        this->heap.push_back(heapp[i]);
+    }
 }
 
 int Heap::getHeapSize() const {
@@ -64,13 +66,14 @@ void Heap::minHeapify(int nodeIndex) {
     int right = this->getRight(nodeIndex);
     int small;
 
-    small = (left <= this->heapSize and this->heap[left-1].getFrequency() < this->heap[nodeIndex-1].getFrequency()) ? left : nodeIndex;
-    small = (right <= this->heapSize and this->heap[right-1].getFrequency() < this->heap[small-1].getFrequency()) ? right : small;
+    small = (left <= this->heapSize and this->heap[left-1]->getFrequency() < this->heap[nodeIndex-1]->getFrequency()) ? left : nodeIndex;
+    small = (right <= this->heapSize and this->heap[right-1]->getFrequency() < this->heap[small-1]->getFrequency()) ? right : small;
 
     if(small != nodeIndex) {
-        Node intermediate = this->heap[nodeIndex-1];
+        Node *intermediate = this->heap[nodeIndex-1];
         this->heap[nodeIndex-1] = this->heap[small-1];
         this->heap[small-1] = intermediate;
+        intermediate = nullptr;
 
         minHeapify(small);
     }
@@ -83,7 +86,7 @@ void Heap::minHeapify(int nodeIndex) {
  */
 Node Heap::heapMaximum() {
     if(this->heapSize > 0) {
-        return this->heap[0];
+        return *this->heap[0];
     }
     else {
         throw HEAP_ENPTY_EXCPETION;
@@ -97,7 +100,7 @@ Node Heap::heapMaximum() {
  */
 Node Heap::heapMinimum() {
     if(this->heapSize > 0) {
-        return this->heap[0];
+        return *this->heap[0];
     }
     else {
         throw HEAP_ENPTY_EXCPETION;
@@ -114,11 +117,11 @@ Node Heap::heapExtractMax() {
     if(this->heapSize < 1) {
         throw HEAP_ENPTY_EXCPETION;
     }
-    Node max = this->heap[ROOT - 1];
+    Node *max = this->heap[ROOT - 1];
     this->heap[ROOT -1] = this->heap[this->heapSize - 1];
     this->heapSize--;
     this->maxHeapify(ROOT);
-    return max;
+    return *max;
 }
 
 /**
@@ -126,11 +129,11 @@ Node Heap::heapExtractMax() {
  * @author filipe.cazuza@ifpb.edu.br
  * @return - Menor valor do heap minimo
  */
-Node Heap::heapExtractMin() {
+Node* Heap::heapExtractMin() {
     if(this->heapSize < 1) {
         throw HEAP_ENPTY_EXCPETION;
     }
-    Node small = this->heap[ROOT-1];
+    Node *small = this->heap[0];
     this->heap[ROOT - 1] = this->heap[this->heapSize - 1];
     this->heapSize--;
     this->minHeapify(ROOT);
@@ -144,10 +147,10 @@ Node Heap::heapExtractMin() {
  * @param newKey - novo valor do nó
  */
 void Heap::heapIncreaseKey(int nodeIndex, int newKey) {
-    this->heap[nodeIndex-1].setFrequency(newKey);
-    while (nodeIndex != 0 && this->heap[this->getParent(nodeIndex)-1].getFrequency() < this->heap[nodeIndex-1].getFrequency())
+    this->heap[nodeIndex-1]->setFrequency(newKey);
+    while (nodeIndex != 0 && this->heap[this->getParent(nodeIndex)-1]->getFrequency() < this->heap[nodeIndex-1]->getFrequency())
     {
-        Node intermediate = this->heap[nodeIndex - 1];
+        Node *intermediate = this->heap[nodeIndex - 1];
         this->heap[nodeIndex - 1] = this->heap[this->getParent(nodeIndex) - 1];
         this->heap[this->getParent(nodeIndex) - 1] = intermediate;
 
@@ -163,9 +166,9 @@ void Heap::heapIncreaseKey(int nodeIndex, int newKey) {
  * @param newKey - novo valor do nó
  */
 void Heap::heapDecreaseKey(int nodeIndex, int newKey) {
-    this->heap[nodeIndex - 1].setFrequency(newKey);
-    while (nodeIndex != 1 && this->heap[this->getParent(nodeIndex) - 1].getFrequency() > this->heap[nodeIndex - 1].getFrequency()) {
-        Node intermediate = this->heap[nodeIndex - 1];
+    this->heap[nodeIndex - 1]->setFrequency(newKey);
+    while (nodeIndex != 1 && this->heap[this->getParent(nodeIndex) - 1]->getFrequency() > this->heap[nodeIndex - 1]->getFrequency()) {
+        Node *intermediate = this->heap[nodeIndex - 1];
         this->heap[nodeIndex - 1] = this->heap[this->getParent(nodeIndex) - 1];
         this->heap[this->getParent(nodeIndex) - 1] = intermediate;
 
@@ -185,10 +188,10 @@ void Heap::maxHeapInsert(Node node) {
 
     this->heapSize++;
     int i = this->heapSize - 1;
-    this->heap[i] = node;
+    this->heap[i] = &node;
 
-    while (i != 0 && this->heap[this->getParent(i)].getFrequency() < this->heap[i].getFrequency()) {
-        Node intermediate = this->heap[i];
+    while (i != 0 && this->heap[this->getParent(i)]->getFrequency() < this->heap[i]->getFrequency()) {
+        Node *intermediate = this->heap[i];
         this->heap[i] = this->heap[this->getParent(i)];
         this->heap[this->getParent(i)] = intermediate;
 
@@ -208,10 +211,10 @@ void Heap::minHeapInsert(Node node){
 
     this->heapSize++;
     int i = this->heapSize - 1;
-    this->heap[i] = node;
+    this->heap[i] = &node;
 
-    while (i != 0 && this->heap[this->getParent(i)].getFrequency() > this->heap[i].getFrequency()) {
-        Node intermediate = this->heap[i];
+    while (i != 0 && this->heap[this->getParent(i)]->getFrequency() > this->heap[i]->getFrequency()) {
+        Node *intermediate = this->heap[i];
         this->heap[i] = this->heap[this->getParent(i)];
         this->heap[this->getParent(i)] = intermediate;
 
@@ -229,6 +232,8 @@ int Heap::getHeapLength() const {
  */
 void Heap::setHeapLength(int heapLength) {
     Heap::heapLength = heapLength;
+    this->heap[Heap::heapLength];
+
 }
 
 /**
@@ -255,3 +260,11 @@ void Heap::buildMinHeap() {
 }
 
 Heap::Heap() {}
+
+int Heap::getReference() const {
+    return reference;
+}
+
+void Heap::increaseReference() {
+    Heap::reference += 1;
+}
